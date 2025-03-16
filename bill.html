@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill for Table</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .bill-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .table-section {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .table-section h3 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .done-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .done-btn:hover {
+            background-color: #c0392b;
+        }
+        @media (max-width: 600px) {
+            .bill-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 400px) {
+            .bill-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order</a>
+        <a href="bartender.html">Bartender</a>
+        <a href="bill.html">Bill</a>
+        <a href="revenue.html">Revenue</a>
+    </nav>
+    <h2>Bill for Table</h2>
+    <div id="allTables" class="bill-grid"></div>
+    <script src="script.js"></script>
+    <script>
+        updateAllTables();
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 15px;
+    line-height: 1.6;
+}
+
+nav {
+    background-color: #2c3e50;
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    font-size: 1em;
+}
+
+nav a:hover {
+    background-color: #34495e;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+div, #billOutput, #revenueOutput {
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+    input, select, button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}

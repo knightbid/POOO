@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order by Table</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .left-panel {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+        }
+        .right-panel {
+            flex: 2;
+            min-width: 200px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .table-section {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .table-section h3 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .table-section.selected {
+            background-color: #e8f4f8;
+            border: 2px solid #3498db;
+        }
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0;
+        } 
+        .order-item button:last-child {
+            width: 50px;
+            background-color: #e74c3c; /* Red for remove */
+        }
+        .order-item button:hover {
+            opacity: 0.8;
+        }
+        @media (max-width: 600px) {
+            .left-panel, .right-panel {
+                flex: 100%;
+                max-width: 100%;
+            }
+            .right-panel {
+                max-height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order</a>
+        <a href="bartender.html">Bartender</a>
+        <a href="bill.html">Bill</a>
+        <a href="revenue.html">Revenue</a>
+    </nav>
+    <h2>Order by Table</h2>
+    <div class="container">
+        <div class="left-panel">
+            <select id="itemSelect"></select>
+            <button onclick="addOrder()">Add to Order</button>
+        </div>
+        <div class="right-panel">
+            <h3>All Table Orders (Tap to Select)</h3>
+            <div id="allTables"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        updateItemSelect();
+        updateAllTables();
+    </script>
+</body>
+</html>
