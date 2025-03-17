@@ -157,7 +157,7 @@ function setupRealTimeUpdates() {
                     const orderList = orders.map(o => 
                         `<div class="order-item">${o.name} - $${o.price}` +
                         (selectedTable === tableNum && !allTables.classList.contains('bill-grid') 
-                            ? ` <button onclick="removeOrder('${tableNum}', '${o.timestamp}')">Remove</button>`
+                            ? ` <button onclick="removeOrder('${tableNum}', '${o.timestamp}')">❌</button>`
                             : '') +
                         `</div>`
                     ).join('');
