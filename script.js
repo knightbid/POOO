@@ -106,7 +106,7 @@ async function updateAllTables() {
             const tableNum = i.toString();
             const orders = tables[tableNum]?.orders || [];
             html += `<div class="table-section${selectedTable === tableNum ? ' selected' : ''}" data-table="${tableNum}">`;
-            html += `<h3>Table ${tableNum}</h3>`;
+            html += `<h3>Bàn ${tableNum}</h3>`;
             if (orders.length > 0) {
                 const orderList = orders.map(o => 
                     `<div class="order-item">${o.name} - $${o.price}` +
@@ -118,7 +118,7 @@ async function updateAllTables() {
                 const total = orders.reduce((sum, o) => sum + o.price, 0);
                 html += `${orderList}<br><strong>Total: $${total}</strong>`;
             } else {
-                html += 'No orders for this table.';
+                html += 'Chưa order.';
             }
             if (allTables.classList.contains('bill-grid')) {
                 html += `<br><button class="done-btn" onclick="doneBill('${tableNum}')">Done Bill</button>`;
@@ -152,7 +152,7 @@ function setupRealTimeUpdates() {
                 const tableNum = i.toString();
                 const orders = tables[tableNum]?.orders || [];
                 html += `<div class="table-section${selectedTable === tableNum ? ' selected' : ''}" data-table="${tableNum}">`;
-                html += `<h3>Table ${tableNum}</h3>`;
+                html += `<h3>Bàn ${tableNum}</h3>`;
                 if (orders.length > 0) {
                     const orderList = orders.map(o => 
                         `<div class="order-item">${o.name} - $${o.price}` +
@@ -164,7 +164,7 @@ function setupRealTimeUpdates() {
                     const total = orders.reduce((sum, o) => sum + o.price, 0);
                     html += `${orderList}<br><strong>Total: $${total}</strong>`;
                 } else {
-                    html += 'No orders for this table.';
+                    html += 'Chưa order.';
                 }
                 if (allTables.classList.contains('bill-grid')) {
                     html += `<br><button class="done-btn" onclick="doneBill('${tableNum}')">Done Bill</button>`;
@@ -183,7 +183,7 @@ function setupRealTimeUpdates() {
             }
             allOrders.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
             bartenderList.innerHTML = allOrders.length > 0
-                ? allOrders.map(order => `<li style="background-color: ${getTableColor(order.table)};">Table ${order.table}: ${order.name} (${new Date(order.timestamp).toLocaleTimeString()})</li>`).join('')
+                ? allOrders.map(order => `<li style="background-color: ${getTableColor(order.table)};">Bàn ${order.table}: ${order.name} (${new Date(order.timestamp).toLocaleTimeString()})</li>`).join('')
                 : '<li>No orders yet.</li>';
         }
     });
