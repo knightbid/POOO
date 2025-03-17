@@ -6,12 +6,7 @@
     <title>Bartender Orders</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        #bartenderList li {
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            color: #333;
-        }
+        #bartenderList li { margin: 5px 0; padding: 10px; border-radius: 5px; color: #333; }
     </style>
 </head>
 <body>
@@ -25,16 +20,8 @@
     </nav>
     <h2>Bartender Orders</h2>
     <ul id="bartenderList"></ul>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script src="script.js"></script>
-    <script>
-        updateBartenderList();
-        setInterval(function() {
-            try {
-                updateBartenderList();
-            } catch (error) {
-                console.error('Error refreshing bartender list:', error);
-            }
-        }, 5000);
-    </script>
 </body>
 </html>

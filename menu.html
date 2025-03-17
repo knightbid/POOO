@@ -1,11 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Manager</title>
+    <title>Menu Management</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+            /* Align inputs and button vertically */
+        }
+
+        .input-group input {
+            flex: 1;
+            /* Inputs take up equal space */
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+
+        .input-group button {
+            padding: 6px 12px;
+            /* Reduced padding to make the button smaller */
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9em;
+            /* Slightly smaller font for proportionality */
+            transition: background-color 0.3s;
+            /* Smooth hover transition */
+        }
+
+        .input-group button:hover {
+            background-color: #2980b9;
+        }
+
+        #menuList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menuList li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 1em;
+        }
+
+        #menuList li:last-child {
+            border-bottom: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 500px) {
+            .input-group {
+                flex-direction: column;
+                /* Stack inputs and button on small screens */
+                gap: 8px;
+            }
+
+            .input-group input,
+            .input-group button {
+                width: 100%;
+                /* Full width for inputs and button */
+                box-sizing: border-box;
+                /* Ensure padding doesn’t affect width */
+            }
+
+            .input-group button {
+                padding: 8px;
+                /* Slightly larger padding for better tap target on mobile */
+            }
+        }
+    </style>
 </head>
+
 <body>
     <nav>
         <a href="index.html">Home</a>
@@ -15,12 +100,25 @@
         <a href="bill.html">Bill</a>
         <a href="revenue.html">Revenue</a>
     </nav>
-    <h2>Menu Manager</h2>
-    <input id="itemName" placeholder="Item Name">
-    <input id="itemPrice" type="number" placeholder="Price">
-    <button onclick="addItem()">Add Item</button>
-    <ul id="menuList"></ul>
+    <h2>Menu Management</h2>
+    <div class="container">
+        <div class="input-group">
+            <input type="text" id="itemName" placeholder="Item Name">
+            <input type="number" id="itemPrice" placeholder="Price" step="0.01">
+            <div>
+
+                <button onclick="addItem()">Add Item</button>
+            </div>
+        </div>
+        <ul id="menuList"></ul>
+    </div><!-- Replace these -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script src="script.js"></script>
-    <script>updateMenuList();</script>
+    <script>
+        updateMenuList();  
+    </script>
+
 </body>
+
 </html>

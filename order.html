@@ -6,64 +6,17 @@
     <title>Order by Table</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .left-panel {
-            flex: 1;
-            min-width: 150px;
-            max-width: 200px;
-        }
-        .right-panel {
-            flex: 2;
-            min-width: 200px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 5px;
-        }
-        .table-section {
-            background-color: white;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .table-section h3 {
-            color: #2c3e50;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        .table-section.selected {
-            background-color: #e8f4f8;
-            border: 2px solid #3498db;
-        }
-        .order-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 5px 0;
-        } 
-        .order-item button:last-child {
-            width: 50px;
-            background-color: #e74c3c; /* Red for remove */
-        }
-        .order-item button:hover {
-            opacity: 0.8;
-        }
-        @media (max-width: 600px) {
-            .left-panel, .right-panel {
-                flex: 100%;
-                max-width: 100%;
-            }
-            .right-panel {
-                max-height: 50vh;
-            }
-        }
+        .container { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
+        .left-panel { flex: 1; min-width: 150px; max-width: 200px; }
+        .right-panel { flex: 2; min-width: 200px; max-height: 80vh; overflow-y: auto; padding-right: 5px; }
+        .table-section { background-color: white; padding: 15px; margin: 10px 0; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer; transition: background-color 0.3s; }
+        .table-section h3 { color: #2c3e50; font-size: 1.2em; margin-bottom: 10px; }
+        .table-section.selected { background-color: #e8f4f8; border: 2px solid #3498db; }
+        .order-item { display: flex; justify-content: space-between; align-items: center; margin: 5px 0; }
+        .order-item button { padding: 5px 10px; margin-left: 5px; background-color: #f1c40f; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        .order-item button:last-child {  width: 40px; background-color: #e74c3c; }
+        .order-item button:hover { opacity: 0.8; }
+        @media (max-width: 600px) { .left-panel, .right-panel { flex: 100%; max-width: 100%; } .right-panel { max-height: 50vh; } }
     </style>
 </head>
 <body>
@@ -86,6 +39,8 @@
             <div id="allTables"></div>
         </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script src="script.js"></script>
     <script>
         updateItemSelect();

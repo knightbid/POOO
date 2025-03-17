@@ -6,48 +6,13 @@
     <title>Bill for Table</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .bill-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .table-section {
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .table-section h3 {
-            color: #2c3e50;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        .done-btn {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .done-btn:hover {
-            background-color: #c0392b;
-        }
-        @media (max-width: 600px) {
-            .bill-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 400px) {
-            .bill-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .bill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .table-section { background-color: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .table-section h3 { color: #2c3e50; font-size: 1.2em; margin-bottom: 10px; }
+        .done-btn { width: 100%; padding: 10px; margin-top: 10px; background-color: #e74c3c; color: white; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; transition: background-color 0.3s; }
+        .done-btn:hover { background-color: #c0392b; }
+        @media (max-width: 600px) { .bill-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 400px) { .bill-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -61,6 +26,8 @@
     </nav>
     <h2>Bill for Table</h2>
     <div id="allTables" class="bill-grid"></div>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script src="script.js"></script>
     <script>
         updateAllTables();
