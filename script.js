@@ -102,28 +102,31 @@ async function updateAllTables() {
     if (allTables) {
         let tables = await getTables();
         let html = '';
-        for (let i = 1; i <= 20; i++) {
-            const tableNum = i.toString();
+        // Filter and display only tables with orders
+        for (let tableNum in tables) {
             const orders = tables[tableNum]?.orders || [];
-            html += `<div class="table-section${selectedTable === tableNum ? ' selected' : ''}" data-table="${tableNum}">`;
-            html += `<h3>Bàn ${tableNum}</h3>`;
-            if (orders.length > 0) {
+            if (orders.length > 0) { // Only include tables with orders
+                html += `<div class="table-section${selectedTable === tableNum ? ' selected' : ''}" data-table="${tableNum}">`;
+                html += `<h3>Bàn ${tableNum}</h3>`;
                 const orderList = orders.map(o => 
                     `<div class="order-item">${o.name} - $${o.price}` +
                     (selectedTable === tableNum && !allTables.classList.contains('bill-grid') 
-                        ? ` <button onclick="removeOrder('${tableNum}', '${o.timestamp}')">❌</button>`
+                        ? ` <button onclick="editOrder('${tableNum}', '${o.timestamp}')">Edit</button>` +
+                          ` <button onclick="removeOrder('${tableNum}', '${o.timestamp}')">Remove</button>`
                         : '') +
                     `</div>`
                 ).join('');
                 const total = orders.reduce((sum, o) => sum + o.price, 0);
                 html += `${orderList}<br><strong>Total: $${total}</strong>`;
-            } else {
-                html += 'Chưa order.';
+                if (allTables.classList.contains('bill-grid')) {
+                    html += `<br><button class="done-btn" onclick="doneBill('${tableNum}')">Tính tiền</button>`;
+                }
+                html += '</div>';
             }
-            if (allTables.classList.contains('bill-grid')) {
-                html += `<br><button class="done-btn" onclick="doneBill('${tableNum}')">Done Bill</button>`;
-            }
-            html += '</div>';
+        }
+        // If no tables have orders, show a message
+        if (html === '') {
+            html = '<div class="table-section"><p>No tables with orders.</p></div>';
         }
         allTables.innerHTML = html;
 
